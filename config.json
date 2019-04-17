@@ -1,7 +1,7 @@
 {
   "info": {
     "name": "Elegant Mavis",
-    "version": "0.1.0-pre",
+    "version": "0.1.1-pre",
     "description": "Elegant theme featuring Anime Waifus",
     "icon": "",
     "type": "sass"
@@ -9,15 +9,16 @@
   "main": "src/app.scss",
   "defaultConfig": [
     {
-      "category": "default",
+      "category": "General Settings",
+      "type": "drawer",
       "settings": [
         {
           "id": "bg-chat-main",
           "type": "file",
-          "text": "Chat background image",
+          "text": "Choose background image",
           "hint": "Add a background to the messages area",
           "value": [
-              "src/assets/default/sfw.webp"
+            "src/assets/default/background.jpg"
           ]
         },
         {
@@ -28,10 +29,30 @@
           "hint": "Pick your Primary Color"
         },
         {
+          "id": "overlay-color",
+          "type": "colour",
+          "value": "#0000002f",
+          "text": "Overlay Color",
+          "hint": "Overlay Color used to make background images darker/lighter"
+        }
+      ]
+    },
+    {
+      "category": "Scrollbar Settings",
+      "type": "drawer",
+      "settings": [
+        {
           "id": "hide-channel-scrollbar",
           "type": "bool",
-          "value": false,
+          "value": true,
           "text": "Hide Channel Scrollbar",
+          "hint": ""
+        },
+        {
+          "id": "hide-modal-scrollbar",
+          "type": "bool",
+          "value": true,
+          "text": "Hide Modal Scrollbar",
           "hint": ""
         }
       ]

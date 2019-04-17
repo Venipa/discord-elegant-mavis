@@ -242,3 +242,13 @@ $enable-rounded: true;
   -webkit-box-shadow: $shadow;
   box-shadow: $shadow;
 }
+
+%noScrollbar {
+  & > .da-scrollerWrap {
+    overflow: hidden;
+    & > .da-scroller {
+      margin-right: -8px;
+      padding-right: 8px;
+    }
+  }
+}

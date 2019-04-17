@@ -1,7 +1,6 @@
-$black: #202225;
-$black-1: #212428;
+$black: #202020 !default;
+$black-1: #212428 !default;
 $primary: #3ECC9C !default;
-$bg-chat-main: (
-    data: ''
-) !default;
+$bg-chat-main: false !default;
+$hide-modal-scrollbar: false !default;
 $hide-channel-scrollbar: false !default;

@@ -14,4 +14,21 @@ bd-body {
 
         }
     }
+    .bd-drawerHeader {
+        &:hover {
+            & > .bd-formHeaderText {
+                color: $primary;
+            }
+        }
+        & > .bd-formHeaderText {
+            color: darken($primary, 5);
+        }
+    }
+    .bd-settingsModal {
+        .bd-modal {
+            & > .bd-modalInner {
+                background: $black;
+            }
+        }
+    }
 }

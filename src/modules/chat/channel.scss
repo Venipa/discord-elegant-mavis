@@ -28,13 +28,7 @@ body:not(.bd-hideButton)
       }
       & > .da-container:first-of-type:not(:last-of-type) {
         @if $hide-channel-scrollbar {
-          & > .da-scrollerWrap {
-            overflow: hidden;
-            & > .da-scroller {
-              margin-right: -8px;
-              padding-right: 8px;
-            }
-          }
+          @extend %noScrollbar;
         }
       }
       & > .da-container:last-of-type:not(:first-of-type) {

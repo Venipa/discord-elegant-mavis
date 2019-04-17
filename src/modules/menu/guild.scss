@@ -8,7 +8,7 @@
         & > .da-scrollerWrap > .da-scroller {
             padding-left:0;
         }
-        .da-container[data-guild-id] {
+        & > .da-scrollerWrap > .da-scroller > .da-container {
             &:before {
                 width: 4px;
             }
@@ -34,6 +34,8 @@
                 border-radius: $iconRad!important;
             }
             &,
+            .da-homeButton,
+            .da-homeButton > .da-homeLink,
             .da-icon {
                 width: $iconSize;
                 height: $iconSize;
