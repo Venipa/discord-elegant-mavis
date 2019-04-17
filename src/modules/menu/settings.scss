@@ -1,0 +1,59 @@
+.da-standardSidebarView {
+    .da-sidebarRegion {
+        background: $black;
+        @include box-shadow(inset -10px 0 0 -1px lighten($black, 20));
+        margin-right: -8px;
+        padding-right: 4px;
+    }
+    .da-contentRegion {
+        background: lighten($black, 5);
+    }
+    .da-sidebar {
+        .da-header {
+            color: rgba($primary, .6)
+        }
+        .da-item {
+            &.da-selected {
+                background-color: rgba($primary, .8)
+            }
+        }
+    }
+}
+.theme-dark {
+    .da-cardPrimaryEditable {
+        &[style*="color: rgb(114, 137, 218)"] {
+            background-color: rgba($primary, .8)!important;
+            border-color: rgba(lighten($primary, 10), .8)!important;
+        }
+        & > .da-checkboxWrapper {
+            & > .da-checkbox {
+                border-width: 0!important;
+                @include border-radius(50%);
+                @include transform(scale(.725));
+                @include transition(transform .2s ease-out, opacity .2s ease-out);
+                opacity: 0;
+                &.da-checked {
+                    @include transform(scale(1));
+                    opacity: 1;
+                }
+            }
+        }
+    }
+}
+.da-switch {
+    &[class*="themeDefault-"][class*="valueChecked-"] {
+        background-color: rgba($primary, .9)!important;
+    }
+}
+:host,
+.theme-dark {
+    & .da-anchor,
+    & .da-card .da-anchor {
+        &a {
+            color: rgba($primary, .8)!important;
+            &:hover {
+                color: rgba($primary, 1)!important;
+            }
+        }
+    }
+}

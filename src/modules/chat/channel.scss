@@ -1,0 +1,46 @@
+body:not(.bd-hideButton)
+  [class*='layer-']
+  > *
+  > [class*='wrapper-']
+  + [class*='flex'] {
+  border-radius: 0;
+}
+.theme-dark {
+  .bd-isGuildChannel {
+    & > .da-wrapper {
+      & > .da-content {
+        @include transition(background-color 0.12s ease-out);
+        &.da-contentSelectedText {
+          background-color: rgba($primary, 0.85);
+        }
+      }
+    }
+  }
+  .da-noChannel {
+    background-color: $black;
+  }
+  .da-channels {
+    &.da-vertical {
+      @include border-radius(0);
+      @include box-shadow(inset -2px 0 0 -1px lighten($black, 20));
+      & > .da-container {
+        background-color: transparent;
+      }
+      & > .da-container:first-of-type:not(:last-of-type) {
+        @if $hide-channel-scrollbar {
+          & > .da-scrollerWrap {
+            overflow: hidden;
+            & > .da-scroller {
+              margin-right: -8px;
+              padding-right: 8px;
+            }
+          }
+        }
+      }
+      & > .da-container:last-of-type:not(:first-of-type) {
+        @include border-radius(0);
+        background-color: rgba(#fff, 0.05);
+      }
+    }
+  }
+}

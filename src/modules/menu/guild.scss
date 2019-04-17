@@ -1,0 +1,48 @@
+.da-app > .da-app.theme-dark {
+    $guildWrapper: 48px;
+    $iconSub: 16px;
+    $iconSize: $guildWrapper - $iconSub;
+    $iconRad: 8px;
+    & > .da-layers > .da-layer:first-child > .da-container > .da-wrapper {
+        width: 48px!important;
+        & > .da-scrollerWrap > .da-scroller {
+            padding-left:0;
+        }
+        .da-container[data-guild-id] {
+            &:before {
+                width: 4px;
+            }
+            &.da-selected {
+                &:before {
+                    $selectedHeight: 20px;
+                    height: $selectedHeight;
+                    margin-top: -$selectedHeight/2;
+                }
+            }
+            margin: $iconSub/2;
+            @include transition(transform .12s ease-out);
+            &:active {
+                transform: scale(.875);
+            }
+            &:before {
+                left: -6px;
+                z-index: 999;
+            }
+            margin-bottom: $iconSub;
+            &, & > .da-dragfix > .da-wrapper {
+                background-color: transparent!important;
+                border-radius: $iconRad!important;
+            }
+            &,
+            .da-icon {
+                width: $iconSize;
+                height: $iconSize;
+            }
+            &,
+            & > .da-dragfix,
+            & > .da-dragfix > .da-wrapper > a {
+                border-radius: $iconRad!important;
+            }
+        }
+    }
+}

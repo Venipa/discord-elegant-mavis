@@ -1,0 +1,107 @@
+$theme-name: "e-mavis";
+$global-config: (
+  font: (
+    global: (
+      font:
+        "'Bahnschrift', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",
+      size: 100%,
+      spacing: 0
+    ),
+    chat: (
+      size: 95%,
+      weight: 500,
+      spacing: -0.5px
+    )
+  ),
+  v2: false,
+  radius: 8px,
+  theme-name: "Discord Dark Koi",
+  primary: $primary,
+  dark: $black,
+  dark-accent: $black-1,
+  autocomplete: (
+    searchbar: (
+      height: 42px
+    )
+  ),
+  message-user-overlap: true,
+  message: (
+    avatar-size: 36px
+  ),
+  ownerId: "442612628104151040",
+  ownerName: "Theme Owned by Cascade#0001",
+  defaults: (
+    vertical-background: (
+      source: "https://i.mavis.moe/f/HTqWhcEDQQ/wallhaven-746411.jpg"
+    ),
+    background: (
+      source: "https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-751008.png",
+      position: center,
+      size: cover
+    ),
+    headerImage: (
+      source: "https://i.mavis.moe/f/enUGHYl3ij/chrome-2019-02-18-17-40-20.png"
+    )
+  )
+);
+@function get($key, $map) {
+  $keys: str-explode($key, ".");
+  @if not deep-map-check($map, $keys...) {
+    @error 'The argument $map: `#{$map}` doesn\'t has some of the $keys: `#{$keys}`!';
+  }
+  @return deep-map-get($map, $keys...);
+}
+@function config($keys) {
+  @return get($keys, $global-config);
+}
+@function parseVar($name...) {
+  @return var(--#{to-lower-case($string: $theme-name)}-#{$name});
+}
+@mixin makeVar($name, $value...) {
+  --#{to-lower-case($string: $theme-name)}-#{$name}: #{$value};
+}
+@function parseUrl($url) {
+  @return url("#{$url}");
+}
+:root {
+  @include makeVar("primary", $primary);
+  @include makeVar("default", $black);
+  @include makeVar("default-alternative", $black-1);
+  @include makeVar("role-list-height", 160px);
+  @include makeVar(
+    "custom-background",
+    "url(#{config('defaults.background.source')})"
+  );
+  @include makeVar(
+    "custom-background-position",
+    config("defaults.background.position")
+  );
+  @include makeVar(
+    "custom-background-size",
+    config("defaults.background.size")
+  );
+  @include makeVar(
+    "modal-header-image",
+    "url(#{config('defaults.headerImage.source')})"
+  );
+  @include makeVar("modal-header-image-opacity", 0.2);
+  @include makeVar("modal-header-image-position", 0);
+  /* * Channel variables start */
+  @include makeVar(
+    "channel-background",
+    "url(#{config('defaults.vertical-background.source')})"
+  );
+  @include makeVar("channel-background-position", 50% 50%);
+  @include makeVar("channel-background-size", auto 100%);
+  @include makeVar("channel-background-opacity", 0.25);
+  @include makeVar("channel-background-blur", 4px);
+  /* * Channel variables end */
+}
+$guildSettings: (
+  icon-size: 35px,
+  badge-fontSize: 10px,
+  guild-wrapper-width: 60px
+);
+@function gConfig($keys) {
+  @return get($keys, $guildSettings);
+}

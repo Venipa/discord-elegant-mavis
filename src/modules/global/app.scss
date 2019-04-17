@@ -1,0 +1,18 @@
+#app-mount {
+  @include box-shadow(inset 0 0 0 1px #000, inset 0 0 0 2px lighten(#000, 30));
+  padding: 2px;
+  box-sizing: border-box;
+}
+bd-body {
+  & > .bd-settingsWrapper > .bd-settings {
+    & > .bd-sidebarView {
+        & > .bd-sidebarRegion {
+            @include box-shadow(inset 2px -2px 0 -1px #000, inset 2px -2px 0 0px lighten(#000, 30));
+        }
+      & > .bd-contentRegion {
+        width: 480px;
+        @include box-shadow(inset 0px -2px 0 -1px #000, inset 0px -2px 0 0px lighten(#000, 30));
+      }
+    }
+  }
+}
