@@ -6,7 +6,7 @@
                 background-color .1s ease,
                 box-shadow .1s ease
                 );
-            @include border-radius(2px);
+                @include border-radius(config(radius));
         }
         &:hover, &.popout-open {
             $whiteOutlineOpacity: .45;

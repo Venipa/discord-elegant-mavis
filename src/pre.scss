@@ -4,3 +4,7 @@ $primary: #3ECC9C !default;
 $bg-chat-main: false !default;
 $hide-modal-scrollbar: false !default;
 $hide-channel-scrollbar: false !default;
+$overlay-color: rgba(#000, .675) !default;
+$_base-border-radius: 2 !default;
+$base-border-radius: $_base-border-radius * 1px !default;
+$icon-border-radius: 8px !default;

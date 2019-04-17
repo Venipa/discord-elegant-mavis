@@ -17,9 +17,7 @@
           "type": "file",
           "text": "Choose background image",
           "hint": "Add a background to the messages area",
-          "value": [
-            "src/assets/default/background.jpg"
-          ]
+          "value": ["src/assets/default/background.jpg"]
         },
         {
           "id": "primary",
@@ -31,9 +29,61 @@
         {
           "id": "overlay-color",
           "type": "colour",
-          "value": "#0000002f",
+          "value": "#0000006f",
           "text": "Overlay Color",
           "hint": "Overlay Color used to make background images darker/lighter"
+        }
+      ]
+    },
+    {
+      "category": "Border Settings",
+      "type": "drawer",
+      "settings": [
+        {
+          "id": "_base-border-radius",
+          "type": "slider",
+          "value": 2,
+          "min": 0,
+          "max": 20,
+          "step": 1,
+          "unit": "px",
+          "multi": 1,
+          "text": "Base Border Radius",
+          "hint": ""
+        },
+        {
+            "id": "icon-border-radius",
+            "type": "dropdown",
+            "value": "b3",
+            "text": "Icon border radius",
+            "hint": "Default is 8px",
+            "options": [
+                {
+                    "id": "b1",
+                    "text": "small",
+                    "value": "4px"
+                },
+                {
+                    "id": "b2",
+                    "text": "medium",
+                    "value": "6px"
+                },
+                {
+                    "id": "b2",
+                    "text": "default",
+                    "value": "8px"
+                },
+                {
+                    "id": "b4",
+                    "text": "high",
+                    "value": "12px"
+                },
+                {
+                    "id": "b5",
+                    "text": "ultra",
+                    "value": "16px"
+                }
+            ]
         }
       ]
     },

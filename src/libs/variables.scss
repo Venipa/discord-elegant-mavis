@@ -14,8 +14,9 @@ $global-config: (
     )
   ),
   v2: false,
-  radius: 8px,
-  theme-name: "Discord Dark Koi",
+  radius: $base-border-radius,
+  icon-radius: $icon-border-radius,
+  theme-name: $theme-name,
   primary: $primary,
   dark: $black,
   dark-accent: $black-1,

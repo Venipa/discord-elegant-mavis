@@ -12,7 +12,7 @@
 .theme-dark {
   & > .da-modal > .da-inner {
     &, & > .da-root {
-      @include border-radius(1px);
+      @include border-radius(config(radius));
     }
     & > .da-root {
       border: 1px solid lighten($black, 20);

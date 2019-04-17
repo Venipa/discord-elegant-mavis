@@ -2,7 +2,7 @@
     $guildWrapper: 48px;
     $iconSub: 16px;
     $iconSize: $guildWrapper - $iconSub;
-    $iconRad: 8px;
+    $iconRad: config(icon-radius);
     & > .da-layers > .da-layer:first-child > .da-container > .da-wrapper {
         width: 48px!important;
         & > .da-scrollerWrap > .da-scroller {
