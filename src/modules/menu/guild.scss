@@ -31,7 +31,7 @@
             margin-bottom: $iconSub;
             &, & > .da-dragfix > .da-wrapper {
                 background-color: transparent!important;
-                border-radius: $iconRad!important;
+                @include border-radius($iconRad!important);
             }
             &,
             .da-homeButton,
@@ -39,11 +39,12 @@
             .da-icon {
                 width: $iconSize;
                 height: $iconSize;
+                @include border-radius($iconRad!important);
             }
             &,
             & > .da-dragfix,
             & > .da-dragfix > .da-wrapper > a {
-                border-radius: $iconRad!important;
+                @include border-radius($iconRad!important);
             }
         }
     }
