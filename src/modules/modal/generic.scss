@@ -6,11 +6,25 @@
       & > div > .da-wrapper > .da-item > .da-modal {
         background: $black;
       }
+      .da-imageWrapper{
+        background: darken($black, 10);
+        border: 1px solid lighten($black, 20);
+        @include box-shadow(0 0 0 1px #000);
+        padding: 4px;
+        &, img {
+          @include border-radius(config(radius));
+        }
+      }
     }
   }
 }
 .theme-dark {
   & > .da-modal > .da-inner {
+    & > .da-modal {
+      & > .da-footer, & {
+        background: darken($black, 2);
+      }
+    }
     &, & > .da-root {
       @include border-radius(config(radius));
     }

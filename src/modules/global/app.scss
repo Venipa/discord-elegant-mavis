@@ -6,12 +6,165 @@
 bd-body {
   & > .bd-settingsWrapper > .bd-settings {
     & > .bd-sidebarView {
-        & > .bd-sidebarRegion {
-            @include box-shadow(inset 2px -2px 0 -1px #000, inset 2px -2px 0 0px lighten(#000, 30));
-        }
+      & > .bd-sidebarRegion {
+        @include box-shadow(
+          inset 2px -2px 0 -1px #000,
+          inset 2px -2px 0 0px lighten(#000, 30)
+        );
+      }
       & > .bd-contentRegion {
         width: 480px;
-        @include box-shadow(inset 0px -2px 0 -1px #000, inset 0px -2px 0 0px lighten(#000, 30));
+        @include box-shadow(
+          inset 0px -2px 0 -1px #000,
+          inset 0px -2px 0 0px lighten(#000, 30)
+        );
+      }
+    }
+  }
+}
+#app-mount > .da-titleBar {
+  background-color: $black;
+}
+.theme-dark {
+  .da-auditLog > .da-header {
+    @include border-radius(config(radius));
+    @include box-shadow(0 0 0 1px #000);
+    border: 1px solid lighten($black, 20);
+  }
+  .da-group {
+    &[role='group'] {
+      @include border-radius(config(radius));
+      @include box-shadow(0 0 0 1px #000);
+      border: 1px solid lighten($black, 20);
+      & > .da-item {
+        border-width: 0;
+        margin: 4px;
+        @include border-radius(config(radius));
+      }
+    }
+  }
+  .da-noticeRegion > .da-container {
+    @include box-shadow(0 0 0 1px #000, 0 4px 14px -2px #000!important);
+  }
+  .da-card,
+  .da-membersFilterPopout,
+  .da-noticeRegion > .da-container,
+  .da-paymentPane {
+    &.da-inviteSettingsInviteRow,
+    &.da-member,
+    &.da-emojiRow {
+      margin: 10px 40px;
+      padding-left: 12px;
+      padding-right: 12px;
+      &:before {
+        display: none;
+      }
+      .da-revokeInvite,
+      .da-emojiRemove {
+        right: -8px;
+        top: -8px;
+      }
+    }
+    &.da-emojiRow {
+      margin-left: initial;
+      margin-right: initial;
+    }
+    @include border-radius(config(radius));
+    @include box-shadow(0 0 0 1px #000);
+    border: 1px solid lighten($black, 20);
+    &,
+    & > .da-paymentRowHeader,
+    & > .da-paginator,
+    & > .da-paginator .da-paymentRow {
+      background-color: lighten($black, 2) !important;
+    }
+    & > .da-paginator .da-paymentRow .da-expandedInfo {
+      @include border-radius(config(radius));
+      @include box-shadow(0 0 0 1px #000);
+      border: 1px solid lighten($black, 20);
+      background-color: lighten($black, 5) !important;
+    }
+  }
+  .da-checkboxWrapper.da-defaultSection {
+    & > .da-checkbox {
+      @include border-radius(config(radius) !important);
+      @include box-shadow(0 0 0 1px #000!important);
+      border: 1px solid lighten($black, 20) !important;
+      background-color: $black !important;
+      &:hover {
+        border-color: lighten($black, 35) !important;
+      }
+    }
+  }
+  .da-wrapper[role='progressbar'] > svg {
+    & > .da-path {
+      &.da-foreground {
+        stroke: $primary !important;
+      }
+      &.da-background {
+        stroke: $black !important;
+      }
+    }
+  }
+  .da-membersHeader .da-searchBar,
+  .da-popoutListInput {
+    background-color: $black;
+  }
+  .da-membersHeader .da-searchBar,
+  .da-popoutListInput,
+  .da-select,
+  .da-inputWrapper .da-input {
+    @include border-radius(config(radius));
+    @include box-shadow(0 0 0 1px #000);
+    border: 1px solid lighten($black, 20);
+    &:hover {
+      border-color: lighten($black, 35);
+    }
+    &,
+    & input {
+      &:active,
+      &:focus {
+        &,
+        &:hover {
+          border-color: $primary;
+        }
+      }
+    }
+  }
+  .da-button,
+  .da-actionButton {
+    &[class*='lookInverted-'][class*='colorBrand-'],
+    &[class*='lookInverted-'][class*='colorGreen-'] {
+      @include border-radius(config(radius));
+      @include box-shadow(0 0 0 1px #fff);
+      border: 1px solid invert(lighten($black, 20));
+      background-color: invert(darken($primary, 40%));
+      color: invert(darken($primary, 10));
+      &:hover {
+        border-color: invert(lighten($black, 35));
+        color: invert(darken($primary, 5));
+      }
+      &:active,
+      &:focus {
+        border-color: invert($primary);
+        color: invert($primary);
+      }
+    }
+    &[class*='lookFilled-'][class*='colorBrand-'],
+    &[class*='lookFilled-'][class*='colorGreen-'] {
+      @include border-radius(config(radius));
+      @include box-shadow(0 0 0 1px #000);
+      border: 1px solid lighten($black, 20);
+      background-color: darken($primary, 40%);
+      color: darken($primary, 10);
+      &:hover {
+        border-color: lighten($black, 35);
+        color: darken($primary, 5);
+      }
+      &:active,
+      &:focus {
+        border-color: $primary;
+        color: $primary;
       }
     }
   }

@@ -20,6 +20,13 @@
           "value": ["src/assets/default/background.jpg"]
         },
         {
+          "id": "full-screen-background",
+          "type": "bool",
+          "value": false,
+          "text": "Fullscreen Background",
+          "hint": "Make use of the whole UI Window"
+        },
+        {
           "id": "primary",
           "type": "colour",
           "value": "#3ECC9C",
@@ -32,6 +39,19 @@
           "value": "#0000006f",
           "text": "Overlay Color",
           "hint": "Overlay Color used to make background images darker/lighter"
+        }
+      ]
+    },
+    {
+      "category": "User Popout Settings",
+      "type": "drawer",
+      "settings": [
+        {
+          "id": "widen-popout-avatar",
+          "type": "bool",
+          "value": true,
+          "text": "Full Avatar on Userpopout",
+          "hint": ""
         }
       ]
     },
@@ -103,6 +123,13 @@
           "type": "bool",
           "value": true,
           "text": "Hide Modal Scrollbar",
+          "hint": ""
+        },
+        {
+          "id": "hide-pin-scrollbar",
+          "type": "bool",
+          "value": true,
+          "text": "Hide Pinned Scrollbar",
           "hint": ""
         }
       ]

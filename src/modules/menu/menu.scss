@@ -1,0 +1,38 @@
+@keyframes popIn {
+    from {
+        opacity: 0!important;
+        @include transform(translateX(-50%) scale(0.675)!important);
+    }
+    to {
+        opacity: 1!important;
+        @include transform(translateX(-50%) scale(1)!important);
+    }
+}
+.theme-dark {
+    &.da-titleWrapper {
+        @if $full-screen-background {
+            background-color: rgba($overlay-color, alpha($overlay-color) * 1.5);
+        } @else {
+            background-color: $black;
+        }
+        & > .da-title {
+            background-color: transparent;
+        }
+    }
+}
+.da-popouts > .da-popout {
+    @include border-radius(config(radius));
+    height: auto!important;
+    width: auto!important;
+    opacity: 1!important;
+    box-sizing: border-box;
+    & > .da-menu {
+        background-color: $black;
+        @include box-shadow(0 0 0 1px #000, inset 0 0 0 1px lighten($black, 35));
+        @include border-radius(config(radius));
+        padding: 2px 0;
+        & > .da-item {
+            margin:0 1px;
+        }
+    }
+}

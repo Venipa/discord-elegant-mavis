@@ -1,0 +1,20 @@
+.theme-dark {
+  .da-messagesPopoutWrap {
+      @if $hide-pin-scrollbar {
+          @extend %noScrollbar;
+      }
+    @include border-radius(config(radius));
+    @include box-shadow(0 0 0 1px #000);
+    border: 1px solid lighten($black, 20);
+    $messagesPopoutWrapBackground: $black;
+    &, & > .da-header {
+        background-color: $messagesPopoutWrapBackground;
+    }
+    .da-messageGroupWrapper {
+        @include border-radius(config(radius));
+        @include box-shadow(0 0 0 1px #000);
+        border: 1px solid lighten($black, 20);
+        background-color: lighten($messagesPopoutWrapBackground, 2);
+    }
+  }
+}

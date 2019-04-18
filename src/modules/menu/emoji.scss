@@ -1,0 +1,44 @@
+.da-emojiPicker {
+  background-color: $black;
+  border: 1px solid lighten($black, 20);
+  @include box-shadow(0 0 0 1px #000);
+  @include border-radius(config(radius));
+  .da-searchBar {
+    background-color: $black;
+    & > .da-searchBarInner {
+      background-color: lighten($black, 2);
+      border: 1px solid lighten($black, 20);
+      @include box-shadow(0 0 0 1px #000);
+      @include border-radius(config(radius));
+      input {
+        color: darken(#fff, 5);
+        &::placeholder {
+          color: lighten($black, 40);
+        }
+      }
+      & > .da-searchBarIcon > .da-icon.da-visible {
+          opacity: 1;
+      }
+    }
+  }
+  .da-stickyHeader {
+    background-color: $black;
+    & > .da-category {
+      color: rgba($primary, 0.675);
+    }
+  }
+  .da-emojiItem {
+    background-color: lighten($black, 0)!important;
+    border: 1px solid rgba(lighten($black, 20), 0)!important;
+    @include box-shadow(0 0 0 1px rgba(#000, 0)!important);
+    @include border-radius(config(radius)!important);
+      &.da-selected {
+        background-color: lighten($black, 2)!important;
+        border-color: lighten($black, 20)!important;
+        @include box-shadow(0 0 0 1px #000!important);
+      }
+  }
+  .da-categories .da-item.da-selected {
+      border-bottom-color: $primary;
+  }
+}

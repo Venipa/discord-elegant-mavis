@@ -1,8 +1,30 @@
+.da-app {
+    
+    @if $full-screen-background and $bg-chat-main and map-has-key($bg-chat-main, data) {
+        &:before {
+            content:'';
+            position: absolute;
+            top:0;
+            left:0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/jpg;base64," + map-get($bg-chat-main, 'data'));
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        .da-layers {
+            &, & > .da-layer:first-child {
+                background: transparent;
+            }
+        }
+    }
+}
 .theme-dark {
     .da-chat {
         background-color: transparent;
         position: relative;
-        @if $bg-chat-main and map-has-key($bg-chat-main, data) {
+        @if not $full-screen-background and $bg-chat-main and map-has-key($bg-chat-main, data) {
             &:before {
                 content:'';
                 position: absolute;
@@ -30,6 +52,16 @@
                 }
             }
             & > .da-spacer > form {
+                @keyframes typingIn {
+                    from {
+                        transform: translateY(100%);
+                        opacity:.3;
+                    }
+                    to {
+                        transform: translateY(0%);
+                        opacity:1;
+                    }
+                }
                 & > .da-typing {
                     background-color: darken(desaturate($primary, 60%), 20%);
                     @include box-shadow(inset 0 1px 0 1px darken(desaturate($primary, 60%), 10%));
@@ -42,6 +74,8 @@
                     @include border-radius(config(radius));
                     line-height: 1;
                     height: 24px;
+                    @include transition(opacity .2s ease-out, transform .2s ease-out);
+                    animation: typingIn ease .2s 1;
                 }
                 background-color: $contentChatBgColor;
                 margin-left: 0;
