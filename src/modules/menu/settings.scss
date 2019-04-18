@@ -1,5 +1,10 @@
 .da-standardSidebarView {
+    .da-toolsContainer {
+        flex: 0 0 auto;
+        margin-left: auto;
+    }
     .da-sidebarRegion {
+        flex: 0 0 auto;
         background: $black;
         @include box-shadow(inset -10px 0 0 -1px lighten($black, 20));
         margin-right: -8px;

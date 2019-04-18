@@ -1,0 +1,12 @@
+.da-chat > .da-videoHeight {
+    @if $full-screen-background {
+        background-color: $overlay-color;
+        box-shadow: initial;
+    } @else {
+        background-color: $black;
+    }
+    .da-video {
+        background-color: transparent;
+        box-shadow: initial;
+    }
+}

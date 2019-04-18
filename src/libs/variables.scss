@@ -14,6 +14,9 @@ $global-config: (
     )
   ),
   v2: false,
+  userbar: (
+    height: 52px
+  ),
   radius: $base-border-radius,
   icon-radius: $icon-border-radius,
   theme-name: $theme-name,

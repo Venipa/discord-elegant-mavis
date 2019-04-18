@@ -11,7 +11,7 @@
 .theme-dark {
     &.da-titleWrapper {
         @if $full-screen-background {
-            background-color: rgba($overlay-color, alpha($overlay-color) * 1.5);
+            background-color: rgba($overlay-color, alpha($overlay-color) * 1.1);
         } @else {
             background-color: $black;
         }

@@ -7,8 +7,10 @@
         background: transparent;
     }
     & > .da-layers > .da-layer:first-child > .da-container > .da-wrapper {
+        margin-bottom: 52px;
+        @include border-radius(0);
         @if $full-screen-background {
-            background-color: rgba($overlay-color, alpha($overlay-color) * 1.5);
+            background-color: rgba($overlay-color, alpha($overlay-color) * 0.5);
         } @else {
             background-color: $black;
         }
@@ -42,6 +44,13 @@
                 background-color: transparent!important;
                 @include border-radius($iconRad!important);
             }
+            .da-homeButton {
+                background-color: $black!important;
+                @include transition(background-color .2s ease-out);
+                &:hover {
+                    background-color: $primary!important;
+                }
+            }
             &,
             .da-homeButton,
             .da-homeButton > .da-homeLink,
@@ -52,6 +61,7 @@
             }
             &,
             & > .da-dragfix,
+            & > .da-dragfix > .da-wrapper,
             & > .da-dragfix > .da-wrapper > a {
                 @include border-radius($iconRad!important);
             }

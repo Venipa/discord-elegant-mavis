@@ -5,6 +5,9 @@ body:not(.bd-hideButton)
   + [class*='flex'] {
   border-radius: 0;
 }
+.da-bannerImage:after {
+  background-color: rgba($primary, .75);
+}
 .theme-dark {
   .da-nameDefault {
     color: darken($primary, 5);
@@ -54,10 +57,13 @@ body:not(.bd-hideButton)
       @extend %noScrollbar;
     }
   }
+  .da-channels {
+    margin-bottom: config('userbar.height');
+  }
   .da-channels,
   .da-privateChannels {
     @if $full-screen-background {
-      background-color: rgba($overlay-color, alpha($overlay-color) * 1.5);
+      background-color: $overlay-color;
     } @else {
       background-color: $black;
     }
@@ -102,8 +108,17 @@ body:not(.bd-hideButton)
         }
       }
       & > .da-container:last-of-type:not(:first-of-type) {
+        $my: 2px;
         @include border-radius(0);
-        background-color: rgba(#fff, 0.05);
+        position: fixed;
+        left:0;
+        bottom:0;
+        margin: 0 0 $my $my;
+        height: config("userbar.height") - $my;
+        width: 270px - ($my + 1px);
+        background-color: $black;
+        border: 1px solid lighten($black, 20);
+        border-width: 1px 1px 0 0;
       }
     }
   }

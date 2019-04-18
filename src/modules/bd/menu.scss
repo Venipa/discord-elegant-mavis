@@ -7,11 +7,13 @@ bd-body {
                 background: $black!important;
             }
         }
-        .bd-settingsButton:not(.bd-active) .bd-settingsButtonBtn {
-            &, &:before {
-                width: 48px;
+        .bd-settingsButton:not(.bd-active) {
+            box-shadow: initial;
+            .bd-settingsButtonBtn {
+                &, &:before {
+                    width: 52px;
+                }
             }
-
         }
     }
     .bd-drawerHeader {

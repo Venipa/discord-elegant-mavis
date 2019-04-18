@@ -24,6 +24,10 @@ bd-body {
 }
 #app-mount > .da-titleBar {
   background-color: $black;
+  &.da-withFrame {
+    margin-top:0;
+    padding-top: 4px;
+  }
 }
 .theme-dark {
   .da-auditLog > .da-header {
