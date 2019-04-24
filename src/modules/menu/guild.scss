@@ -1,70 +1,168 @@
 .da-app > .da-app.theme-dark {
-    $guildWrapper: 48px;
-    $iconSub: 16px;
-    $iconSize: $guildWrapper - $iconSub;
-    $iconRad: config(icon-radius);
-    & > .da-layers > .da-layer:first-child > .da-container:first-child {
-        background: transparent;
+  $guildWrapper: 48px;
+  $iconSub: 16px;
+  $iconSize: $guildWrapper - $iconSub;
+  $iconRad: config(icon-radius);
+  & > .da-layers > .da-layer:first-child > .da-container:first-child {
+    background: transparent;
+  }
+  & > .da-layers > .da-layer:first-child > .da-container > .da-wrapper {
+    .da-unreadMentionsIndicatorBottom,
+    .da-unreadMentionsIndicatorTop {
+      max-width: $guildWrapper;
+      padding: 4px;
     }
-    & > .da-layers > .da-layer:first-child > .da-container > .da-wrapper {
-        margin-bottom: 52px;
-        @include border-radius(0);
-        @if $full-screen-background {
-            background-color: rgba($overlay-color, alpha($overlay-color) * 0.5);
-        } @else {
-            background-color: $black;
-        }
-        @include box-shadow(inset -2px 0 0 -1px lighten($black, 20));
-        width: 48px!important;
-        & > .da-scrollerWrap > .da-scroller {
-            padding-left:0;
-        }
-        & > .da-scrollerWrap > .da-scroller > .da-container {
-            &:before {
-                width: 4px;
-            }
-            &.da-selected {
-                &:before {
-                    $selectedHeight: 20px;
-                    height: $selectedHeight;
-                    margin-top: -$selectedHeight/2;
-                }
-            }
-            margin: $iconSub/2;
-            @include transition(transform .12s ease-out);
-            &:active {
-                transform: scale(.875);
-            }
-            &:before {
-                left: -6px;
-                z-index: 999;
-            }
-            margin-bottom: $iconSub;
-            &, & > .da-dragfix > .da-wrapper {
-                background-color: transparent!important;
-                @include border-radius($iconRad!important);
-            }
-            .da-homeButton {
-                background-color: $black!important;
-                @include transition(background-color .2s ease-out);
-                &:hover {
-                    background-color: $primary!important;
-                }
-            }
-            &,
-            .da-homeButton,
-            .da-homeButton > .da-homeLink,
-            .da-icon {
-                width: $iconSize;
-                height: $iconSize;
-                @include border-radius($iconRad!important);
-            }
-            &,
-            & > .da-dragfix,
-            & > .da-dragfix > .da-wrapper,
-            & > .da-dragfix > .da-wrapper > a {
-                @include border-radius($iconRad!important);
-            }
-        }
+    margin-bottom: 52px;
+    @include border-radius(0);
+    @if $full-screen-background {
+      background-color: rgba($overlay-color, alpha($overlay-color) * 0.5);
+    } @else {
+      background-color: $black;
     }
+    @include box-shadow(inset -2px 0 0 -1px lighten($black, 20));
+    width: 48px !important;
+    & > .da-scrollerWrap > .da-scroller {
+      padding-left: 0;
+    }
+    & > .da-scrollerWrap > .da-scroller > .da-container,
+    & > .da-scrollerWrap > .da-scroller > .da-listItem {
+      &:nth-child(2) {
+        height: 4px;
+      }
+      &:before {
+        width: 4px;
+      }
+      &.da-selected {
+        &:before {
+          $selectedHeight: 20px;
+          height: $selectedHeight;
+          margin-top: -$selectedHeight/2;
+        }
+      }
+      margin: $iconSub/2;
+      & > .da-blobContainer,
+      & > .da-blob {
+        @include transition(transform 0.12s ease-out);
+      }
+      &:active {
+        & > .da-blobContainer,
+        & > .da-blob {
+          transform: scale(0.875);
+        }
+      }
+      &:before {
+        left: -6px;
+        z-index: 999;
+      }
+      margin-bottom: $iconSub;
+      & > .da-blobContainer > .da-wrapper > .da-svg > mask {
+        display: none;
+      }
+      &,
+      & > .da-dragfix > .da-wrapper,
+      & > .da-blobContainer,
+      & > .da-blobContainer > .da-wrapper {
+        &,
+        & .da-svg {
+          background-color: transparent !important;
+          @include border-radius($iconRad!important);
+        }
+      }
+      .da-homeButton,
+      & > .da-blob.da-wrapper .da-button {
+        $homeIconSize: $iconSize - 12px;
+        background-color: $black !important;
+        @include transition(background-color 0.2s ease-out);
+        &:hover {
+          background-color: $primary !important;
+        }
+        & > svg {
+          width: $homeIconSize;
+          height: $homeIconSize;
+        }
+      }
+      & > .da-pill {
+        height: $iconSize;
+        left: -8px;
+        & > .da-item {
+          background-color: $primary;
+          &[style*="translate3d(0px, 0px, 0px)"] {
+            @include border-radius(0 $iconRad $iconRad 0);
+          }
+        }
+      }
+      & > .da-blob.da-wrapper mask {
+        display: none;
+      }
+      & > .da-blob.da-wrapper .da-badgeWrapper {
+        top: -10px;
+        margin-left: 4px;
+      }
+      &,
+      .da-homeButton,
+      .da-homeButton > .da-homeLink,
+      .da-icon.da-guildIcon,
+      & > .da-blobContainer > .da-wrapper,
+      & > .da-blobContainer .da-svg,
+      & > .da-blob.da-wrapper .da-button,
+      & > .da-blob.da-wrapper foreignObject {
+        width: $iconSize;
+        height: $iconSize;
+        @include border-radius($iconRad!important);
+        &,
+        & .da-icon {
+          @include border-radius($iconRad!important);
+        }
+      }
+      &.da-selected {
+        .da-icon.da-guildIcon {
+          &:before {
+            opacity: 1;
+            @include transform(scale(1.15));
+          }
+        }
+      }
+      .da-icon.da-guildIcon {
+        position: relative;
+        @include box-shadow(0 0 20px -4px #000);
+        &,
+        &:before {
+          background-color: $black;
+        }
+        &:before {
+          content: '';
+          background-image: inherit;
+          background-size: contain;
+          background-position: center;
+          background-repeat: no-repeat;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          @include border-radius($iconRad!important);
+          position: absolute;
+          z-index: -1;
+          opacity: 0.375;
+          @include transform(scale(1));
+          @include transition(all 0.2s ease-out);
+        }
+      }
+      & > .da-badge {
+        z-index: 5;
+        font-size: 0.675rem;
+        padding: 1px 4px;
+      }
+      & > .da-dragfix {
+        position: relative;
+        z-index: 0;
+      }
+      &,
+      & > .da-dragfix,
+      & > .da-dragfix > .da-wrapper,
+      & > .da-dragfix > .da-wrapper > a {
+        @include border-radius($iconRad!important);
+        overflow: initial;
+      }
+    }
+  }
 }

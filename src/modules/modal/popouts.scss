@@ -1,5 +1,9 @@
 .da-popouts {
   & > .da-popout {
+    & > .da-menu.menu-Sp6bN1 {
+      border: 0px solid transparent;
+      @include box-shadow(0 0 26px -2px #000);
+    }
     & > .da-userPopout {
       @include box-shadow(0 0 0 1px #000);
       border: 1px solid lighten($black, 20);

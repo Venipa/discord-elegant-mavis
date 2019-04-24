@@ -1,0 +1,10 @@
+.da-videoControls {
+    .da-mediaBarProgress {
+        & > .da-mediaBarGrabber {
+            background-color: lighten($primary, 5);
+        }
+        &, &:before, &:after {
+            background-color: lighten($primary, 0);
+        }
+    }
+}

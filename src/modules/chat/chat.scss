@@ -52,6 +52,7 @@
                 }
             }
             & > .da-spacer > form {
+                @include border-radius(0);
                 @keyframes typingIn {
                     from {
                         transform: translateY(100%);
@@ -82,7 +83,7 @@
                 margin-right: 0;
                 padding-left: 20px;
                 padding-right: 20px;
-                &, .da-channelTextArea, .da-channelTextArea > .da-inner {
+                .da-channelTextArea, .da-channelTextArea > .da-inner {
                     @include border-radius(config(radius));
                 }
                 .da-channelTextArea > .da-inner {
