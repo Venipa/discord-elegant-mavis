@@ -15,7 +15,7 @@
     margin-bottom: 52px;
     @include border-radius(0);
     @if $full-screen-background {
-      background-color: rgba($overlay-color, alpha($overlay-color) * 0.5);
+      background-color: $overlay-color;
     } @else {
       background-color: $black;
     }

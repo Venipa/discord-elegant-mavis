@@ -132,7 +132,7 @@ body:not(.bd-hideButton)
         left:0;
         bottom:0;
         margin: 0 0 $my $my;
-        height: config("userbar.height") - $my;
+        height: (config("userbar.height") - $my) + 4px;
         width: 270px - ($my + 1px);
         background-color: $black;
         border: 1px solid lighten($black, 20);
