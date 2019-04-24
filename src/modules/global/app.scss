@@ -22,8 +22,13 @@ bd-body {
     }
   }
 }
-#app-mount > .da-titleBar {
-  background-color: $black;
+#app-mount > .da-titleBar,
+.da-chat > .da-title {
+  @if $full-screen-background {
+    background-color: $overlay-color;
+  } @else {
+    background-color: $black;
+  }
   &.da-withFrame {
     margin-top:0;
     padding-top: 4px;
