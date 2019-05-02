@@ -82,7 +82,8 @@
         }
       }
       & > .da-pill {
-        height: $iconSize;
+        margin-top: $iconSize / 4;
+        height: $iconSize /2;
         left: -8px;
         & > .da-item {
           background-color: $primary;

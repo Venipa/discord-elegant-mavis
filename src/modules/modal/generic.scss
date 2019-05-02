@@ -6,12 +6,13 @@
       & > div > .da-wrapper > .da-item > .da-modal {
         background: $black;
       }
-      .da-imageWrapper{
+      .da-imageWrapper {
         background: darken($black, 10);
         border: 1px solid lighten($black, 20);
         @include box-shadow(0 0 0 1px #000);
         padding: 4px;
-        &, img {
+        &,
+        img {
           @include border-radius(config(radius));
         }
       }
@@ -20,15 +21,39 @@
 }
 .theme-dark {
   & > .da-modal > .da-inner {
-    & > .da-modal {
-      & > .da-footer, & {
+    & > .da-modal,
+    .da-regionSelectModal {
+      & > .da-footer,
+      & {
         background: darken($black, 2);
       }
     }
-    &, & > .da-root {
+    &,
+    & > .da-root,
+    .da-regionSelectModal {
       @include border-radius(config(radius));
     }
-    & > .da-root {
+    .da-regionSelectModal {
+      & > .da-regionSelectModalHeader {
+        color: $primary;
+      }
+      & > .da-regionSelectModalOptions {
+        & > .da-regionSelectModalOption {
+          &:hover {
+            background-color: lighten($black, 2);
+            border: 1px solid lighten($black, 30);
+          }
+          @include transition(background-color .1s ease-out, border-color .1s ease-out);
+          border: 1px solid lighten($black, 20);
+          @include box-shadow(0 0 0 1px #000);
+          background-color: $black;
+          @include border-radius(config(radius));
+        }
+      }
+      padding: 32px 28px;
+    }
+    & > .da-root,
+    .da-regionSelectModal {
       border: 1px solid lighten($black, 20);
       @include box-shadow(0 0 0 1px #000);
       & > .da-topSectionNormal,
@@ -49,9 +74,9 @@
           background: $black;
           & > .da-icon {
             position: relative;
-            @include transition(transform .2s ease-out, opacity .2s ease-out);
-            @include transform(scale(.675));
-            opacity: .675;
+            @include transition(transform 0.2s ease-out, opacity 0.2s ease-out);
+            @include transform(scale(0.675));
+            opacity: 0.675;
           }
           &:hover {
             background: lighten($black, 5%);

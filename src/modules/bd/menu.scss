@@ -1,36 +1,85 @@
 bd-body {
-    &, & > .bg-settingsWrapper {
-        font-family: 'Bahnschrift', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    
-        .bd-sidebarView {
-            .bd-sidebarRegion, .bd-contentRegion {
-                background: $black!important;
+  &,
+  & > .bg-settingsWrapper {
+    font-family: #{config('font.global.font')};
+
+    .bd-sidebarView {
+      .bd-header {
+        color: $primary;
+      }
+      .bd-item {
+        @if $full-screen-background {
+            &:hover {
+              background-color: transparent;
+            }
+          @include border-radius(0 $base-border-radius $base-border-radius 0);
+          @include transition(box-shadow 0.2s ease, padding-left 0.2s ease);
+          &.bd-active {
+            @include linear-gradient(
+              to right,
+              rgba(#fff, 0.0875),
+              rgba(#fff, 0) 50%
+            );
+            @include box-shadow(inset 7px 0 0 -1px $primary);
+            padding-left: 16px;
+          }
+        } @else {
+            &:hover {
+              background-color: rgba(#fff, .0875);
+            }
+            &.bd-active {
+                background-color: rgba($primary, .75);
+                @include box-shadow(inset 0 0 0 1px rgba(#fff, .35), 0 0 0 1px #000)
             }
         }
-        .bd-settingsButton:not(.bd-active) {
-            box-shadow: initial;
-            .bd-settingsButtonBtn {
-                &, &:before {
-                    width: 52px;
-                }
-            }
+      }
+      @if $full-screen-background {
+        $sdbg: darken($black, 5);
+        .bd-sidebarRegion {
+          @include linear-gradient(to right, $sdbg, rgba($sdbg, 0.75));
         }
+        .bd-contentRegion {
+          background: rgba($sdbg, 0.75) !important;
+          transform: translateX(0);
+          opacity: 0;
+        }
+        &.bd-active {
+          .bd-contentRegion {
+            opacity: 1;
+          }
+        }
+      } @else {
+        .bd-sidebarRegion,
+        .bd-contentRegion {
+          background: $black !important;
+        }
+      }
     }
-    .bd-drawerHeader {
-        &:hover {
-            & > .bd-formHeaderText {
-                color: $primary;
-            }
+    .bd-settingsButton:not(.bd-active) {
+      box-shadow: initial;
+      .bd-settingsButtonBtn {
+        &,
+        &:before {
+          width: 52px;
         }
-        & > .bd-formHeaderText {
-            color: darken($primary, 5);
-        }
+      }
     }
-    .bd-settingsModal {
-        .bd-modal {
-            & > .bd-modalInner {
-                background: $black;
-            }
-        }
+  }
+  .bd-drawerHeader {
+    &:hover {
+      & > .bd-formHeaderText {
+        color: $primary;
+      }
     }
+    & > .bd-formHeaderText {
+      color: darken($primary, 5);
+    }
+  }
+  .bd-settingsModal {
+    .bd-modal {
+      & > .bd-modalInner {
+        background: $black;
+      }
+    }
+  }
 }
